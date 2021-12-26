@@ -28,7 +28,7 @@ scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
                                                    step_size=3,
                                                    gamma=0.1)
 
-NUM_EPOCHS = 10
+NUM_EPOCHS = 50
 net = net.to(device) # this will bring the network to GPU if DEVICE is cuda
 loss_func = CrossEntropy2d()
 cudnn.benchmark # Calling this optimizes runtime
@@ -85,7 +85,7 @@ for epoch in range(NUM_EPOCHS):
   # Step the scheduler
   scheduler.step()
   pass
-torch.save(net,'net10city3norm(nolr).pkl')
+torch.save(net,'net50.pkl')
 
 
 
