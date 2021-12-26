@@ -11,7 +11,7 @@ from Liuloss import DiceLoss,CrossEntropy2d
 import torch.nn as nn
 CUDA_LAUNCH_BLOCKING=1
 from Cityscapes.CityscapevalL import Cityscape
-net2=torch.load('net10city3norm(nolr).pkl')
+net2=torch.load('net50.pkl')
 net2.eval()
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 #device=torch.device('cpu')
