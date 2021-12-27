@@ -69,38 +69,7 @@ class Cityscape(torch.utils.data.Dataset):
 
 
 
-'''
-#encode the label
-def encode_segmap(mask, mapping, ignore_index):
-    label_copy = ignore_index * np.ones(mask.shape, dtype=np.float32)
-    for k, v in mapping:
-        label_copy[mask == k] = v
 
-    return label_copy
-#
-info = json.load(open('info.json','r'))      #加载json数据
-class_mapping = info['label2train']           #取label2train数据
-ignore_index=255
-#open image and label
-images=os.listdir('train/')
-labels=os.listdir('train_labels/')
-imagee=[]
-labell=[]
-#__getitem__
-for i in range(len(images)):
-    image=Image.open('train/'+images[i])
-    label=Image.open('labels/'+labels[i])
-    # convert into numpy array
-    image = np.asarray(image, np.float32)
-    image=torch.from_numpy(image)
-    label = np.asarray(label, np.float32)
-    # remap the semantic label
-    label = encode_segmap(label,class_mapping, ignore_index)
-    label=torch.from_numpy(label)
-    imagee.append(image)
-    labell.append(label)
-    pass
-'''
 
 
 
